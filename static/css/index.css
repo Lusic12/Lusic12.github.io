@@ -249,6 +249,19 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   flex-shrink: 0;
   width: clamp(220px, 28vw, 340px);
 }
+
+.paper-media {
+  flex-shrink: 0;
+  width: clamp(220px, 28vw, 340px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.paper-media .paper-thumb {
+  width: 100%;
+}
+
 .paper-thumb img {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -284,6 +297,38 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   line-height: 1.5;
   color: var(--text);
   letter-spacing: -0.01em;
+}
+
+.project-symbol {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(31, 111, 235, 0.06);
+  border: 1px solid rgba(31, 111, 235, 0.16);
+}
+
+.project-symbol img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.project-symbol-text strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.project-symbol-text p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
 }
 
 .paper-authors {
@@ -599,6 +644,9 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
     flex-direction: column;
     gap: 16px;
   }
+  .paper-media {
+    width: 100%;
+  }
   .paper-thumb,
   .paper-thumb img,
   .paper-thumb-placeholder {
@@ -621,6 +669,16 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   .paper-btn {
     padding: 5px 10px;
     font-size: 0.75rem;
+  }
+
+  .project-symbol {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 10px;
+  }
+  .project-symbol img {
+    width: 56px;
+    height: 56px;
   }
 
   .exp-item {

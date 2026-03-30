@@ -56,6 +56,58 @@
     });
   }
 
+  // Project symbols:
+  // Add data-symbol-name, data-symbol-image, and data-symbol-desc to .paper-card
+  // to auto-render a mascot/symbol block for that project.
+  paperCards.forEach(function (card) {
+    var symbolName = card.getAttribute('data-symbol-name');
+    var symbolImage = card.getAttribute('data-symbol-image');
+    var symbolDesc = card.getAttribute('data-symbol-desc');
+    var paperThumb = card.querySelector('.paper-thumb');
+    var paperInfo = card.querySelector('.paper-info');
+
+    if (!symbolName || !symbolImage || !symbolDesc || !paperThumb || !paperInfo) {
+      return;
+    }
+
+    if (card.querySelector('.project-symbol')) {
+      return;
+    }
+
+    var symbolBlock = document.createElement('div');
+    symbolBlock.className = 'project-symbol';
+
+    var symbolImg = document.createElement('img');
+    symbolImg.src = symbolImage;
+    symbolImg.alt = symbolName + ' symbol';
+    symbolImg.loading = 'lazy';
+    symbolImg.decoding = 'async';
+
+    var symbolText = document.createElement('div');
+    symbolText.className = 'project-symbol-text';
+
+    var symbolTitle = document.createElement('strong');
+    symbolTitle.textContent = 'Project Symbol: ' + symbolName;
+
+    var symbolDescription = document.createElement('p');
+    symbolDescription.textContent = symbolDesc;
+
+    symbolText.appendChild(symbolTitle);
+    symbolText.appendChild(symbolDescription);
+    symbolBlock.appendChild(symbolImg);
+    symbolBlock.appendChild(symbolText);
+
+    var mediaColumn = card.querySelector('.paper-media');
+    if (!mediaColumn) {
+      mediaColumn = document.createElement('div');
+      mediaColumn.className = 'paper-media';
+      card.insertBefore(mediaColumn, paperInfo);
+      mediaColumn.appendChild(paperThumb);
+    }
+
+    mediaColumn.appendChild(symbolBlock);
+  });
+
   // Auto project visualization thumbnail:
   // Drop one image named visualize.(png|jpg|jpeg|webp|avif) into figs/projects/<project-folder>/
   // and the corresponding card will pick it up automatically.
