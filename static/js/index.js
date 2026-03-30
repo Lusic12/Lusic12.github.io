@@ -57,55 +57,39 @@
   }
 
   // Project symbols:
-  // Add data-symbol-name, data-symbol-image, and data-symbol-desc to .paper-card
-  // to auto-render a mascot/symbol block for that project.
+  // Add data-symbol-name and data-symbol-image to .paper-card
+  // to auto-render a small symbol next to the paper title.
   paperCards.forEach(function (card) {
     var symbolName = card.getAttribute('data-symbol-name');
     var symbolImage = card.getAttribute('data-symbol-image');
-    var symbolDesc = card.getAttribute('data-symbol-desc');
-    var paperThumb = card.querySelector('.paper-thumb');
-    var paperInfo = card.querySelector('.paper-info');
+    var paperTitle = card.querySelector('.paper-title');
 
-    if (!symbolName || !symbolImage || !symbolDesc || !paperThumb || !paperInfo) {
+    if (!symbolName || !symbolImage || !paperTitle) {
       return;
     }
 
-    if (card.querySelector('.project-symbol')) {
+    if (paperTitle.querySelector('.paper-title-symbol')) {
       return;
     }
 
-    var symbolBlock = document.createElement('div');
-    symbolBlock.className = 'project-symbol';
+    var titleText = paperTitle.querySelector('.paper-title-text');
+    if (!titleText) {
+      titleText = document.createElement('span');
+      titleText.className = 'paper-title-text';
+      titleText.textContent = paperTitle.textContent.trim();
+      paperTitle.textContent = '';
+      paperTitle.appendChild(titleText);
+    }
 
     var symbolImg = document.createElement('img');
+    symbolImg.className = 'paper-title-symbol';
     symbolImg.src = symbolImage;
     symbolImg.alt = symbolName + ' symbol';
+    symbolImg.title = symbolName;
     symbolImg.loading = 'lazy';
     symbolImg.decoding = 'async';
 
-    var symbolText = document.createElement('div');
-    symbolText.className = 'project-symbol-text';
-
-    var symbolTitle = document.createElement('strong');
-    symbolTitle.textContent = 'Project Symbol: ' + symbolName;
-
-    var symbolDescription = document.createElement('p');
-    symbolDescription.textContent = symbolDesc;
-
-    symbolText.appendChild(symbolTitle);
-    symbolText.appendChild(symbolDescription);
-    symbolBlock.appendChild(symbolImg);
-    symbolBlock.appendChild(symbolText);
-
-    var mediaColumn = card.querySelector('.paper-media');
-    if (!mediaColumn) {
-      mediaColumn = document.createElement('div');
-      mediaColumn.className = 'paper-media';
-      card.insertBefore(mediaColumn, paperInfo);
-      mediaColumn.appendChild(paperThumb);
-    }
-
-    mediaColumn.appendChild(symbolBlock);
+    paperTitle.appendChild(symbolImg);
   });
 
   // Auto project visualization thumbnail:
