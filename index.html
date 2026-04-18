@@ -1,255 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Personal research homepage — computer vision, medical image segmentation, and AI.">
-  <meta name="keywords" content="LUSIC12, computer vision, medical image segmentation, SAGE-UNet, research homepage">
-  <meta name="author" content="LUSIC12">
-  <meta property="og:title" content="LUSIC12 | Research Homepage">
-  <meta property="og:description" content="Personal research homepage for LUSIC12 — computer vision and medical AI.">
-  <meta property="og:image" content="figs/homepage/intro-me.jpeg">
-  <meta name="robots" content="index, follow">
+  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta property="og:image" content="./figs/homepage/intro-me.jpeg" />
+  <meta property="og:title" content="Anh-Minh Phan" />
+  <meta property="og:description" content="Hi Internet! I'm Anh-Minh and this is my personal webpage." />
+  <link rel="stylesheet" href="static/css/jemdoc.css" type="text/css" />
+  <link href="https://fonts.cdnfonts.com/css/computer-modern" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="static/images/Poke_ball.ico?v=2" />
+  <title>Anh-Minh Phan</title>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-  <title>LUSIC12 | Research Homepage</title>
+  <style>
+    /* Font Override for LaTeX Vibe */
+    body, h1, h2, h3, h4, h5, h6, table, td, p, a, li, div, span {
+      font-family: 'Computer Modern Serif', serif;
+      font-size: 1.02em; /* Tweak size slightly for readability */
+    }
 
-  <link rel="icon" type="image/x-icon" href="static/images/Poke_ball.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  <script defer src="static/js/index.js"></script>
+    /* Profile Photo Hover Effect */
+    #profile_photo {
+      max-width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    /* Publication Toggle Buttons */
+    .pub-toggle {
+      cursor: pointer;
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9em;
+      padding: 0 5px;
+      transition: color 0.2s;
+    }
+    .pub-toggle:hover {
+      color: #555;
+    }
+    .pub-toggle.active {
+      color: #0000CD;
+      font-weight: 600;
+    }
+
+    /* Publication Tables */
+    .publication-table {
+      transition: opacity 0.3s ease;
+      width: 100%;
+    }
+
+    /* Research Vision Toggle */
+    .research-vision-container {
+      max-width: 95%;
+      margin: 0 auto;
+      text-align: center;
+      transition: text-align 0.3s ease;
+    }
+    .research-vision-container.expanded {
+      text-align: left;
+    }
+    .research-vision-toggle {
+      cursor: pointer;
+      color: #555;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .research-vision-toggle:hover {
+      color: #0000CD;
+    }
+    .research-vision-toggle::after {
+      content: " [click to expand]";
+      font-size: 0.85em;
+      color: #999;
+    }
+    .research-vision-toggle.active::after {
+      content: " [click to collapse]";
+    }
+    .research-vision-details {
+      display: none;
+    }
+    .research-vision-details.active {
+      display: inline;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="header-name" href="#top">LUSIC12</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <table summary="Table for page layout." id="tlayout">
+    <tr valign="top">
+      <td id="layout-content">
 
-  <main class="container">
-
-    <!-- ====== ABOUT ====== -->
-    <section id="about" class="about-section">
-      <div class="about-photo">
-        <img src="figs/homepage/intro-me.jpeg" alt="Profile photo of LUSIC12">
-      </div>
-
-      <div class="about-bio">
-        <h1>Anh-Minh <span class="name-cjk"></span></h1>
-
-        <p class="bio-text">
-          I am a researcher in <strong>Computer Vision</strong> and <strong>Image Processing</strong>.
-        </p>
-
-        <p class="bio-text">
-          <strong>Research Interests:</strong>
-          <br>• Object Detection
-          <br>• Multiview Detection &amp; Tracking
-          <br>• Mixture of Experts (MoE)
-        </p>
-
-        <p class="bio-text">
-          I am open to research collaboration in vision and multimodal AI.
-        </p>
-
-        <p class="bio-text">
-          Currently, I am working with <strong>Dr. Linh Ma Van</strong>.
-        </p>
-
-        <div class="social-links">
-          <a href="mailto:phananhm5@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-          <span class="divider">/</span>
-          <a href="#" target="_blank" rel="noreferrer"><i class="fas fa-file-alt"></i> CV</a>
-          <span class="divider">/</span>
-          <a href="https://scholar.google.com/citations?user=JCbuDwcAAAAJ&hl" target="_blank" rel="noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-          <span class="divider">/</span>
-          <a href="https://github.com/Lusic12" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Github</a>
+        <!-- Header -->
+        <div id="toptitle">
+          <h1>Anh-Minh Phan</h1>
         </div>
-      </div>
-    </section>
+        
+        <!-- Profile Section -->
+        <table class="imgtable">
+          <tr>
+            <td>
+              <a href="figs/homepage/intro-me.jpeg">
+                <img src="figs/homepage/intro-me.jpeg" alt="Anh-Minh Phan" width="270px" />
+              </a>&nbsp;
+            </td>
+            <td style="text-align: left;">
+              <p>
+                Hi, I'm Anh-Minh! 👋<br> 
+                I am a researcher focusing on <b>Computer Vision</b> (Segmentation, Detection, Tracking).<br>
+                My advisors are <a href="https://scholar.google.com/citations?user=hiQ4NwkAAAAJ&hl=en">Postdoc. Mã Linh Văn</a> and <a href="https://scholar.google.com.vn/citations?hl=vi&user=Xs7cKMwAAAAJ&view_op=list_works&sortby=pubdate">Prof. Nhật Hồ</a>.
+              </p>
+              
+              <p style="font-size:90%" class="research-vision-container">
+                <span class="research-vision-toggle" onclick="toggleResearchVision()">"I study <b>Mixture-of-Experts (MoE)</b> for adaptive learning from heterogeneous views."</span><span class="research-vision-details" id="research-vision-details">
+                  <br>Many real-world AI problems involve multiple perspectives of the same scene or event. My research explores how Mixture-of-Experts can model this diversity by learning how to route inputs adaptively.
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;• <b>Multi-view and cross-view perception:</b> Expert routing for detection and tracking across multiple camera viewpoints.
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;• <b>Multi-modal expert fusion:</b> Integrating heterogeneous sensors.
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;• <b>Model generalization under data bias:</b> Enhancing robustness against temporal shifts and biased distributions via specialized expert routing.
+                </span>
+              </p>
+              <p>
+                <center>
+                  <a href="mailto:phananhm5@gmail.com">Email</a> / 
+                  <a href="https://github.com/Lusic12">GitHub</a> /
+                  <a href="https://scholar.google.com/citations?user=JCbuDwcAAAAJ&hl">Google Scholar</a> /
+                  <a href="#">Resume/CV</a>
+                </center>
+              </p>
+              <center>
+                <p style="font-size:90%; color:#EE4B2B; background-color:#F2F0EF; padding:8px 12px; border-radius:6px; width:93%;">
+                  Currently seeking Master/PhD opportunities (2025/2026). Feel free to reach out!
+                </p>
+              </center>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- About Me Section -->
+        <h2>Education & Experience</h2>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+            <div style="flex: 0 0 90px; display: flex; justify-content: center; align-items: center; margin-right: 15px; margin-top: 2px;">
+              <img src="figs/homepage/HCMUT_official_logo.png" style="max-width: 60px; object-fit: contain;">
+            </div>
+            <div>
+              <b>B.E. in Electronics and Telecommunications</b> (2021 — 2025)<br>
+              <i>Ho Chi Minh University of Technology (VNU-HCM)</i><br>
+              <b>GPA:</b> 3.24/4.0 (Very Good Degree - Top 21/267 students with Very Good classification or above)<br>
+              Major focus: digital signal processing, computer vision systems (segmentation, detection).
+            </div>
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+            <div style="flex: 0 0 90px; display: flex; justify-content: center; align-items: center; margin-right: 15px; margin-top: 2px;">
+              <img src="figs/homepage/logo_AIVN.pdf" style="width: 100%; object-fit: contain; transform: scale(1.2);">
+            </div>
+            <div>
+              <b>Teacher Assistant</b> (Aug 2024 — present) <span style="font-size: 0.9em; color: #555;">(If you are an AIO member, don't hesitate to reach out!)</span><br>
+              <i>AI Việt Nam</i><br>
+              Mentoring junior students on machine learning, computer vision, and Internet of Things.
+            </div>
+          </li>
+        </ul>
 
-    <!-- ====== NEWS ====== -->
-    <section id="news" class="content-section">
-      <h2 class="section-title">News</h2>
-      <ul class="news-list">
-        <li><span class="news-date">[2025.5]</span> Coming Soon</li>
-      </ul>
-    </section>
+        <!-- News Section -->
+        <h2>News</h2>
+        <ul>
+          <li><b>[2026.04]</b> New paper "Split-Aware Learning for IoT Intrusion Detection" submitted for review!</li>
+          <li><b>[2026.04]</b> SAGE paper accepted to <b>CVPR 2026 Findings!</b></li>
+          <li><b>[2025.11]</b> Paper on multimodal video retrieval accepted to <b>SoICT 2025!</b></li>
+          <li><b>[2025.02]</b> Paper on multi-camera tracking accepted to <b>MAPR 2025!</b></li>
+        </ul>
 
-    <!-- ====== PUBLICATIONS ====== -->
-    <section id="publications" class="content-section">
-      <h2 class="section-title">Publications</h2>
+        <!-- Publications Section -->
+        <h2>
+          Publications 
+          <span style="font-size: 0.7em; font-weight: normal;">
+            [<a href="javascript:void(0)" class="pub-toggle active" id="toggle-selected">selected <span id="count-selected"></span></a> | 
+            <a href="javascript:void(0)" class="pub-toggle" id="toggle-all">all <span id="count-all"></span></a>]
+          </span>
+        </h2>
+        
+        <!-- SAGE -->
+        <table class="imgtable publication-table" data-selected="true">
+          <tr>
+            <td style="width:200px">
+              <a href="figs/projects/sage-unet/visualize.png" target="_blank" title="Click to zoom image">
+                <img src="figs/projects/sage-unet/visualize.png" alt="SAGE Teaser" width="180px" />
+              </a>&nbsp;
+            </td>
+            <td align="left;vertical-align: middle;">
+              <p>
+                <a href="https://oxyzgiahuy.github.io/sage/" target="_blank"><b>SAGE: Shape-Adapting Gated Experts for Adaptive Histopathology Image Segmentation</b></a><br>
+                <i>Gia Huy Thai, Hoang-Nguyen Vu, <b>Anh-Minh Phan</b>, Quang-Thinh Ly, Thi-Ngoc-Truc Nguyen, Nhat Ho</i><br>
+                Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>) Findings, 2026<br>
+                [<a href="https://oxyzgiahuy.github.io/sage/">Project Page</a>, <a href="https://arxiv.org/pdf/2511.18493">Paper</a>, <a href="https://github.com/OxyzGiaHuy/SAGE">Code</a>]
+              </p>
+            </td>
+          </tr>
+        </table>
 
-      <!-- Filter Tabs -->
-      <div class="pub-filters">
-        <button class="filter-btn active" data-filter="all">ALL</button>
-        <button class="filter-btn" data-filter="multiview">Multiview Camera</button>
-        <button class="filter-btn" data-filter="medical image">Medical Image</button>
-        <button class="filter-btn" data-filter="video">Video Retrieval</button>
-      </div>
-      <!-- 
-      Paper 1: Mixture of Experts
-      <article class="paper-card" data-category="medical image">
-        <div class="paper-badge">MoE</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="sage-unet" data-fallback-icon="fa-brain"></div>
-        <div class="paper-info">
-          <h3 class="paper-title">
-            SAGE-UNet: Shape-Adapting Gated Experts for Colonoscopic Lesion Segmentation
-          </h3>
-          <p class="paper-authors">
-            Anh-Minh, Co-author A, Co-author B, Supervisor Name
-          </p>
-          <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>arXiv 2025</em>
-          </p>
-          <p class="paper-tldr">
-            A dynamic mixture-of-experts architecture that adaptively routes spatial features through CNN and Transformer branches for medical image segmentation, combining interpretability with state-of-the-art performance.
-          </p>
-          <div class="paper-buttons">
-            <a href="https://arxiv.org/abs/2511.18493" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="#" class="paper-btn"><i class="fas fa-code"></i> Code</a>
+        <!-- Split-Aware -->
+        <table class="imgtable publication-table" data-selected="true">
+          <tr>
+            <td style="width:200px">
+              <a href="figs/projects/Split-Aware-Learning/visualize.pdf" target="_blank" title="Click to view file">
+                <img src="figs/projects/Split-Aware-Learning/visualize.pdf" alt="Split Aware teaser" onerror="this.src='figs/homepage/intro-me.jpeg';" width="180px" style="opacity: 0.4; object-fit: cover;" />
+              </a>&nbsp;
+            </td>
+            <td align="left;vertical-align: middle;">
+              <p>
+                <a href="https://drive.google.com/file/d/1N-A1PWeSBoMo9juy5mfHfi9kG2bD9Ckt/view?usp=sharing" target="_blank"><b>Split-Aware Learning for IoT Intrusion Detection under Temporal Domain Shift</b></a><br>
+                <i><b>Anh-Minh Phan</b>, Khanh Toan Dang Le, Thai-Huy Vu, Que-Son Vo</i><br>
+                <b>[Ad Hoc Networks]</b> Under Review, 2026<br>
+                [<a href="https://drive.google.com/file/d/1N-A1PWeSBoMo9juy5mfHfi9kG2bD9Ckt/view?usp=sharing">Paper / Materials</a>]
+              </p>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Multiview tracking -->
+        <table class="imgtable publication-table" data-selected="true">
+          <tr>
+            <td style="width:200px">
+              <a href="figs/projects/multiview/visualize.png" target="_blank" title="Click to zoom image">
+                <img src="figs/projects/multiview/visualize.png" alt="Multiview Tracking Teaser" onerror="this.src='figs/projects/multiview/symbol.png';" width="180px" />
+              </a>&nbsp;
+            </td>
+            <td align="left;vertical-align: middle;">
+              <p>
+                <a href="https://github.com/hungvoct/Multi-Camera-Multi-Object-Tracking.git" target="_blank"><b>Enhancing Multi-Camera People Tracking with Conflict-aware Cosine Tracking and Human Matching Re-assignment</b></a><br>
+                <i>Ke-Hung Vo*, <b>Anh-Minh Phan</b>*, Hoang-Duy Le, Viet-Cuong Pham</i> (* equal contribution)<br>
+                International Conference on Multimedia Analysis and Pattern Recognition (<b>MAPR</b>), 2025<br>
+                [<a href="https://drive.google.com/file/d/1BfPmb4QmANrZVvAQD_B2CgWjoJHQ7mI0/view?usp=share_link">Paper</a>, <a href="https://github.com/hungvoct/Multi-Camera-Multi-Object-Tracking.git">Code</a>, <a href="https://drive.google.com/file/d/10KY-Rpjz9q0L6LmjvZCgzJ6ZZpu_jHS2/view?usp=sharing">Poster</a>]
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Collaborative -->
+        <table class="imgtable publication-table" data-selected="false">
+          <tr>
+            <td style="width:200px">
+              <a href="figs/projects/video-retrieval/visualize.png" target="_blank" title="Click to zoom image">
+                <img src="figs/projects/video-retrieval/visualize.png" alt="Video Retrieval" width="180px" style="border-radius: 8px;">
+              </a>&nbsp;
+            </td>
+            <td align="left;vertical-align: middle;">
+              <p>
+                <a href="https://huyrua27.github.io/eeiotnewbie-AIC2025/" target="_blank"><b>Enhanced Multimodal Video Retrieval System: Integrating Query Expansion and Cross-modal Temporal Event Retrieval</b></a><br>
+                <i>Led by Van-Thinh Vo, Minh-Khoi Nguyen, etc. (<b>Anh-Minh Phan</b> - collaborative & corresponding author)</i><br>
+                International Symposium on Information and Communication Technology (<b>SoICT</b>), 2025<br>
+                <i style="color:#ee2400"><small>Final Round of Ho Chi Minh City AI Challenge 2025 🏆</small></i><br>
+                [<a href="https://huyrua27.github.io/eeiotnewbie-AIC2025/">Project Page</a>, <a href="https://arxiv.org/abs/2512.06334">Paper</a>, <a href="https://github.com/ThinhVan27/AIC-2025">Code</a>]
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Footer -->
+        <div id="footer">
+          <div id="footer-text"> 
+            You've reached the end. Template modified from <a href="https://github.com/wsshin/jemdoc_mathjax" target="_blank">jemdoc+MathJax</a>.
+            <br>
+            Last Updated: 2026.
           </div>
         </div>
-      </article>
+
+      </td>
+    </tr>
+  </table>
+
+  <!-- Scripts -->
+  <script>
+    // Publication toggle functionality
+    const toggleSelected = document.getElementById('toggle-selected');
+    const toggleAll = document.getElementById('toggle-all');
+    const publications = document.querySelectorAll('.publication-table');
+    const countSelectedSpan = document.getElementById('count-selected');
+    const countAllSpan = document.getElementById('count-all');
+    
+    // Calculate publication counts
+    const selectedCount = Array.from(publications).filter(pub => 
+      pub.getAttribute('data-selected') === 'true'
+    ).length;
+    const totalCount = publications.length;
+    
+    // Display counts
+    countSelectedSpan.textContent = `(${selectedCount})`;
+    countAllSpan.textContent = `(${totalCount})`;
+    
+    // Function to show selected publications only
+    function showSelected() {
+      publications.forEach(pub => {
+        pub.style.display = pub.getAttribute('data-selected') === 'true' ? 'table' : 'none';
+      });
+      toggleSelected.classList.add('active');
+      toggleAll.classList.remove('active');
+    }
+    
+    // Function to show all publications
+    function showAll() {
+      publications.forEach(pub => {
+        pub.style.display = 'table';
+      });
+      toggleAll.classList.add('active');
+      toggleSelected.classList.remove('active');
+    }
+    
+    // Add event listeners
+    toggleSelected.addEventListener('click', showSelected);
+    toggleAll.addEventListener('click', showAll);
+    
+    // Initialize with selected publications view
+    showSelected();
+  </script>
+
+  <script>
+    // Research vision toggle functionality
+    function toggleResearchVision() {
+      const details = document.getElementById('research-vision-details');
+      const toggle = document.querySelector('.research-vision-toggle');
+      const container = document.querySelector('.research-vision-container');
       
-        -->
-      <!-- Paper 2: Multiview Camera Systems  -->
-      <article class="paper-card"
-               data-category="multiview collab"
-               data-symbol-name="Claydol"
-               data-symbol-image="figs/projects/multiview/symbol.png"
-               data-symbol-desc="Inspired by Claydol's many eyes and omnidirectional perception, this project represents multi-camera tracking, where multiple viewpoints are fused to maintain a consistent identity across scenes.">
-        <div class="paper-badge badge-blue">Multiview</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="multiview" data-fallback-icon="fa-cube"></div>
-        <div class="paper-info">
-          <h3 class="paper-title">
-            Enhancing Multi-Camera People Tracking with Conflict-aware Cosine Tracking and Human Matching Re-assignment
-          </h3>
-          <p class="paper-authors">
-            Ke-Hung Vo, Anh-Minh Phan, Hoang-Duy Le, Viet-Cuong Pham
-          </p>
-          <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>2025 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)</em>
-          </p>
-          <p class="paper-accept">
-            <i class="far fa-calendar-check"></i> Accepted: 06/2025
-          </p>
-          <p class="paper-tldr">
-                This research is supported by Ho Chi Minh City University of Technology (HCMUT) under the Honors Student Research Program.          </p>
-          <div class="paper-buttons">
-            <a href="https://drive.google.com/file/d/1BfPmb4QmANrZVvAQD_B2CgWjoJHQ7mI0/view?usp=share_link" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/hungvoct/Multi-Camera-Multi-Object-Tracking.git" class="paper-btn"><i class="fas fa-code"></i> Code</a>
-            <a href="https://drive.google.com/file/d/10KY-Rpjz9q0L6LmjvZCgzJ6ZZpu_jHS2/view?usp=sharing" class="paper-btn"><i class="fas fa-image"></i> Poster</a>
-          </div>
-        </div>
-      </article>
+      details.classList.toggle('active');
+      toggle.classList.toggle('active');
+      container.classList.toggle('expanded');
+    }
+  </script>
 
-      
-
-      <!-- Paper 3: Video Retrieval + Multimodal -->
-      <article class="paper-card"
-               data-category="video"
-               data-symbol-name="Porygon-Z"
-               data-symbol-image="figs/projects/video-retrieval/symbol.png"
-               data-symbol-desc="We chose Porygon-Z as the symbol of this project because it embodies a digital, evolving, and high-dimensional intelligence. Similar to how Porygon-Z exists within virtual space, this work focuses on retrieving temporal events from videos by aligning textual queries with multimodal visual information through query expansion and cross-modal reasoning.">
-        <div class="paper-badge badge-orange">Video Retrieval</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="video-retrieval" data-fallback-icon="fa-film"></div>
-        <div class="paper-info">
-          <h3 class="paper-title">
-            Enhanced Multimodal Video Retrieval System: Integrating Query Expansion and Cross-modal Temporal Event Retrieval
-          </h3>
-          <p class="paper-authors">
-            Van-Thinh Vo, Minh-Khoi Nguyen, Minh-Huy Tran, Anh-Quan Nguyen-Tran, Duy-Tan Nguyen, Khanh-Loi Nguyen, Anh-Minh Phan
-          </p>
-          <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>The 14th International Symposium on Information and Communication Technology (SoICT) 2025</em>
-          </p>
-          <p class="paper-accept">
-            <i class="far fa-calendar-check"></i> Accepted: 11/2025
-          </p>
-          <p class="paper-tldr">
-            Our team reached the Final Round of the Video Retrieval Event at the Ho Chi Minh City AI Challenge 2025.
-          </p>
-          <div class="paper-buttons">
-            <a href="https://arxiv.org/abs/2512.06334" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/ThinhVan27/AIC-2025" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-code"></i> Code</a>
-            <a href="/figs/projects/video-retrieval/poster.png" class="paper-btn"><i class="fas fa-image"></i> Poster</a>
-            <a href="https://huyrua27.github.io/eeiotnewbie-AIC2025/" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-external-link-alt"></i> Project</a>
-          </div>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- ====== EDUCATION & EXPERIENCE ====== -->
-    <section id="experience" class="content-section">
-      <h2 class="section-title">Education & Experience</h2>
-      
-      <div class="exp-item">
-        <div class="exp-logo">
-          <img src="figs/homepage/hcmut-logo.png" alt="HCMUT logo">
-        </div>
-        <div class="exp-info">
-          <div class="exp-header">
-            <h3>Ho Chi Minh University of Technology (VNU-HCM)</h3>
-            <span class="exp-period">2021 — 2025</span>
-          </div>
-          <p class="exp-role">B.S. in Electronics and Telecommunications</p>
-          <p class="exp-detail">Major focus: digital signal processing, computer vision systems. Specialization in image processing.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-logo">
-          <div class="exp-logo-placeholder">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-        </div>
-        <div class="exp-info">
-          <div class="exp-header">
-            <h3>Master & PhD (Preparing)</h3>
-            <span class="exp-period">2025/2026 — TBD</span>
-          </div>
-          <p class="exp-role">Scholarship applicant: IELTS preparation underway</p>
-          <p class="exp-detail">Target: Master's & PhD programs in computer vision, image processing, or machine learning at research-focused institutions. Focus on 3D vision, medical imaging, and expert mixture architectures.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-logo">
-          <img src="figs/homepage/logo-aivn.png" alt="AI Vietnam logo">
-        </div>
-        <div class="exp-info">
-          <div class="exp-header">
-            <h3>Student Teacher Assistant · AI Việt Nam</h3>
-            <span class="exp-period">Aug 2024 — present</span>
-          </div>
-          <p class="exp-role">STA (Student Teaching Assistant)</p>
-          <p class="exp-detail">Supporting AI education initiatives, mentoring junior students on machine learning, computer vision, and research methodologies. Contributing to AI Việt Nam's mission to advance AI education in Vietnam.</p>
-        </div>
-      </div>
-    </section>
-
-  
-
-    <!-- ====== CONTACT / FOOTER ====== -->
-    <footer id="contact" class="site-footer">
-      <p>© 2025 LUSIC12 · Built with <a href="https://github.com/Lusic12/Lusic12.github.io" target="_blank" rel="noreferrer">open source</a></p>
-      <div class="footer-links">
-        <a href="https://github.com/Lusic12" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
-        <a href="phananhm5@gmail.com"><i class="fas fa-envelope"></i></a>
-      </div>
-    </footer>
-
-  </main>
 </body>
 </html>
